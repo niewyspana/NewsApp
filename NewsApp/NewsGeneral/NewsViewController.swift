@@ -74,18 +74,18 @@ Buddy, you're a boy, make a big noise
     // MARK: - Properties
     
     private let edgeInset = 16
-        
+    
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         view.backgroundColor = .white
         navigationController?.navigationBar.prefersLargeTitles = false
         setupUI()
     }
-
+    
     // MARK: - Methods
-  
+    
     // MARK: - Private methods
     private func setupUI() {
         scrollView.addSubview(contentView)
@@ -117,7 +117,7 @@ Buddy, you're a boy, make a big noise
             make.leading.trailing.equalToSuperview().inset(edgeInset)
             
         }
-
+        
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(dateLabel.snp.bottom).offset(edgeInset)
             make.leading.trailing.equalToSuperview().inset(edgeInset)
