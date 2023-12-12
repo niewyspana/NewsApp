@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,9 @@
 		383048812B1F9184005563C2 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383048802B1F9184005563C2 /* TabBarController.swift */; };
 		383048852B1F933C005563C2 /* BusinessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383048842B1F933C005563C2 /* BusinessViewController.swift */; };
 		383048882B1F934D005563C2 /* TechnologyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383048872B1F934D005563C2 /* TechnologyViewController.swift */; };
+		38A0BDAC2B1FC78F00EFAA60 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 38A0BDAB2B1FC78F00EFAA60 /* SnapKit */; };
+		38A0BDB42B1FDF3000EFAA60 /* GeneralCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A0BDB32B1FDF3000EFAA60 /* GeneralCollectionViewCell.swift */; };
+		38A0BDB72B220F4400EFAA60 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A0BDB62B220F4400EFAA60 /* NewsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,8 @@
 		383048802B1F9184005563C2 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		383048842B1F933C005563C2 /* BusinessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessViewController.swift; sourceTree = "<group>"; };
 		383048872B1F934D005563C2 /* TechnologyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechnologyViewController.swift; sourceTree = "<group>"; };
+		38A0BDB32B1FDF3000EFAA60 /* GeneralCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralCollectionViewCell.swift; sourceTree = "<group>"; };
+		38A0BDB62B220F4400EFAA60 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38A0BDAC2B1FC78F00EFAA60 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,14 +66,56 @@
 			children = (
 				383048682B1F8A83005563C2 /* AppDelegate.swift */,
 				383048802B1F9184005563C2 /* TabBarController.swift */,
-				3830486C2B1F8A83005563C2 /* GeneralViewController.swift */,
-				383048842B1F933C005563C2 /* BusinessViewController.swift */,
-				383048872B1F934D005563C2 /* TechnologyViewController.swift */,
+				38A0BDAE2B1FDEC000EFAA60 /* General */,
+				38A0BDAF2B1FDECE00EFAA60 /* Business */,
+				38A0BDB02B1FDEE300EFAA60 /* Technology */,
+				38A0BDB92B220F6C00EFAA60 /* NewsGeneral */,
 				383048712B1F8A85005563C2 /* Assets.xcassets */,
 				383048732B1F8A85005563C2 /* LaunchScreen.storyboard */,
 				383048762B1F8A85005563C2 /* Info.plist */,
 			);
 			path = NewsApp;
+			sourceTree = "<group>";
+		};
+		38A0BDAE2B1FDEC000EFAA60 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				38A0BDB12B1FDF0500EFAA60 /* View */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		38A0BDAF2B1FDECE00EFAA60 /* Business */ = {
+			isa = PBXGroup;
+			children = (
+				383048842B1F933C005563C2 /* BusinessViewController.swift */,
+			);
+			path = Business;
+			sourceTree = "<group>";
+		};
+		38A0BDB02B1FDEE300EFAA60 /* Technology */ = {
+			isa = PBXGroup;
+			children = (
+				383048872B1F934D005563C2 /* TechnologyViewController.swift */,
+			);
+			path = Technology;
+			sourceTree = "<group>";
+		};
+		38A0BDB12B1FDF0500EFAA60 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3830486C2B1F8A83005563C2 /* GeneralViewController.swift */,
+				38A0BDB32B1FDF3000EFAA60 /* GeneralCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		38A0BDB92B220F6C00EFAA60 /* NewsGeneral */ = {
+			isa = PBXGroup;
+			children = (
+				38A0BDB62B220F4400EFAA60 /* NewsViewController.swift */,
+			);
+			path = NewsGeneral;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -86,6 +134,9 @@
 			dependencies = (
 			);
 			name = NewsApp;
+			packageProductDependencies = (
+				38A0BDAB2B1FC78F00EFAA60 /* SnapKit */,
+			);
 			productName = NewsApp;
 			productReference = 383048652B1F8A83005563C2 /* NewsApp.app */;
 			productType = "com.apple.product-type.application";
@@ -113,6 +164,9 @@
 				Base,
 			);
 			mainGroup = 3830485C2B1F8A83005563C2;
+			packageReferences = (
+				38A0BDAA2B1FC78F00EFAA60 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 383048662B1F8A83005563C2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -140,10 +194,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				383048882B1F934D005563C2 /* TechnologyViewController.swift in Sources */,
+				38A0BDB42B1FDF3000EFAA60 /* GeneralCollectionViewCell.swift in Sources */,
 				383048812B1F9184005563C2 /* TabBarController.swift in Sources */,
 				3830486D2B1F8A83005563C2 /* GeneralViewController.swift in Sources */,
 				383048852B1F933C005563C2 /* BusinessViewController.swift in Sources */,
 				383048692B1F8A83005563C2 /* AppDelegate.swift in Sources */,
+				38A0BDB72B220F4400EFAA60 /* NewsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +391,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		38A0BDAA2B1FC78F00EFAA60 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		38A0BDAB2B1FC78F00EFAA60 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 38A0BDAA2B1FC78F00EFAA60 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3830485D2B1F8A83005563C2 /* Project object */;
 }

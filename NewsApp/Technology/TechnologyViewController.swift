@@ -8,7 +8,11 @@
 import UIKit
 
 class TechnologyViewController: UIViewController {
+    // MARK: - GUI Variables
     
+    // MARK: - Properties
+        
+    // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -16,5 +20,6 @@ class TechnologyViewController: UIViewController {
         
     }
 
-
+    // MARK: - Methods
+    // MARK: - Private methods
 }
