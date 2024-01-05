@@ -23,16 +23,12 @@ class NewsViewController: UIViewController {
     private lazy var imageView: UIImageView = {
         let view = UIImageView()
         
-        view.image = UIImage(named: "image")
-        
-        
         return view
     }()
     
     private lazy var dateLabel: UILabel = {
         let label = UILabel()
         
-        label.text = "13.05.2024"
         label.font = .systemFont(ofSize: 15)
         label.textColor = .darkGray
         
@@ -43,7 +39,6 @@ class NewsViewController: UIViewController {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         
-        label.text = "Title"
         label.font = .systemFont(ofSize: 20)
         label.textColor = .darkGray
         
@@ -53,29 +48,24 @@ class NewsViewController: UIViewController {
     private lazy var textNews: UILabel = {
         let label = UILabel()
         
-        label.text = """
-Buddy, you're a boy, make a big noise
-        Playing in the street, gonna be a big man someday
-        You got mud on your face, you big disgrace
-        Kicking your can all over the place, singin'
-        We will, we will rock you
-        We will, we will rock you
-        Buddy, you're a young man, hard man
-        Shouting in the street, gonna take on the world someday
-        You got blood on your face, you big disgrace
-        Waving your banner all over the place
-        We will, we will rock you, sing it
-        We will, we will rock you
-"""
-        
         return label
     }()
     
     // MARK: - Properties
     
     private let edgeInset = 16
+    private let viewModel: NewsViewModelProtocol
     
     // MARK: - Life cycle
+    
+    init(viewModel: NewsViewModelProtocol) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -94,6 +84,18 @@ Buddy, you're a boy, make a big noise
         contentView.addSubview(titleLabel)
         contentView.addSubview(textNews)
         view.addSubview(scrollView)
+        
+        titleLabel.text = viewModel.title
+        textNews.text = viewModel.description
+        dateLabel.text = viewModel.date
+        
+        // if let data = viewModel.imageData, let image = UIImage(data: data) {
+        //     imageView.image = image
+        // } else {
+        //     imageView.image = UIImage(named: "image")
+        // }
+        
+        imageView.image = UIImage(data: viewModel.imageData ?? Data()) ?? UIImage(named: "image")
         
         setupConstraints()
     }
@@ -130,7 +132,5 @@ Buddy, you're a boy, make a big noise
             make.bottom.equalToSuperview().inset(edgeInset)
             
         }
-        
-        
     }
 }
