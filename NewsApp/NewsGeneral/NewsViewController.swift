@@ -89,12 +89,6 @@ class NewsViewController: UIViewController {
         textNews.text = viewModel.description
         dateLabel.text = viewModel.date
         
-        // if let data = viewModel.imageData, let image = UIImage(data: data) {
-        //     imageView.image = image
-        // } else {
-        //     imageView.image = UIImage(named: "image")
-        // }
-        
         imageView.image = UIImage(data: viewModel.imageData ?? Data()) ?? UIImage(named: "image")
         
         setupConstraints()
@@ -117,20 +111,17 @@ class NewsViewController: UIViewController {
         dateLabel.snp.makeConstraints { make in
             make.top.equalTo(imageView.snp.bottom).offset(edgeInset)
             make.leading.trailing.equalToSuperview().inset(edgeInset)
-            
         }
         
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(dateLabel.snp.bottom).offset(edgeInset)
             make.leading.trailing.equalToSuperview().inset(edgeInset)
-            
         }
         
         textNews.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(edgeInset)
             make.leading.trailing.equalToSuperview().inset(edgeInset)
             make.bottom.equalToSuperview().inset(edgeInset)
-            
         }
     }
 }

@@ -16,5 +16,4 @@ struct NewsResponseObject: Codable {
         case totalResults
         case articles
     }
-    
 }

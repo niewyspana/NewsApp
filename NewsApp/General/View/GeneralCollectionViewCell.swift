@@ -64,7 +64,7 @@ final class GeneralCollectionViewCell: UICollectionViewCell {
         addSubview(blackView)
         addSubview(titleLabel)
         
-                
+        
         setupConstraints()
         
     }
@@ -83,7 +83,5 @@ final class GeneralCollectionViewCell: UICollectionViewCell {
             make.top.bottom.equalTo(blackView)
             make.leading.trailing.equalTo(blackView).offset(5)
         }
-        
     }
-    
 }

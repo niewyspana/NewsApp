@@ -20,13 +20,19 @@ final class ApiManager {
     
     
     // create url path and make request
-    static func getNews(from category: Category, completion: @escaping (Result<[ArticleResponseObject], Error>) -> ()) {
-        let stringUrl = baseUrl + path + "?category=\(category.rawValue)&language=en" + "&apiKey=\(apiKey)"
+    static func getNews(from category: Category, page: Int, searchText: String?, completion: @escaping (Result<[ArticleResponseObject], Error>) -> ()) {
+        var searchParameter = ""
+        if let searchText = searchText {
+            searchParameter = "&q=\(searchText)"
+        }
+        
+        
+        let stringUrl = baseUrl + path + "?category=\(category.rawValue)&language=en&page=\(page)" + searchParameter + "&apiKey=\(apiKey)"
         
         guard let url = URL(string: stringUrl) else { return }
         
         let session = URLSession.shared.dataTask(with: url) { data, _,
-            error in
+                                                              error in
             handleResponse(data: data, error: error, completion: completion)
         }
         session.resume()
@@ -36,7 +42,7 @@ final class ApiManager {
         guard let url = URL(string: url) else { return }
         
         let session = URLSession.shared.dataTask(with: url) { data, _,
-            error in
+                                                              error in
             if let data = data {
                 completion(.success(data))
             }
@@ -45,14 +51,13 @@ final class ApiManager {
             }
         }
         session.resume()
-        
     }
     
     // handle response
     private static func handleResponse(data: Data?,
                                        error: Error?,
                                        completion: @escaping
-                                       (Result<[ArticleResponseObject], Error>) -> ()) {
+                                        (Result<[ArticleResponseObject], Error>) -> ()) {
         if let error = error {
             completion(.failure(NetworkingError.networkingError(error)))
         } else if let data = data {
@@ -63,7 +68,7 @@ final class ApiManager {
             }
             do {
                 let model = try JSONDecoder().decode(NewsResponseObject.self,
-                                                 from: data)
+                                                     from: data)
                 completion(.success(model.articles))
             }
             catch let decodeError {
