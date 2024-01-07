@@ -27,7 +27,6 @@ final class TechnologyViewController: UIViewController {
         layout.minimumLineSpacing = 5
         layout.minimumInteritemSpacing = 5
         
-        
         let collectionView =  UICollectionView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height - searchBar.frame.height), collectionViewLayout: layout)
         
         collectionView.dataSource = self

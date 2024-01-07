@@ -14,13 +14,10 @@ final class BusinessViewController: UIViewController {
     
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        
-        
-        
+    
         layout.minimumLineSpacing = 5
         layout.minimumInteritemSpacing = 5
         layout.sectionInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
-        
         
         let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height), collectionViewLayout: layout)
         
